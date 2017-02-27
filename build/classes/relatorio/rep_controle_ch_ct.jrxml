@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rep_controle_ch_ct" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7306d1d2-f1f4-4ee3-b24f-ce9048d077bc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="40"/>
+	<parameter name="data_inicio" class="java.sql.Date"/>
+	<parameter name="data_fim" class="java.sql.Date"/>
+	<parameter name="where" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT id, numero_parcela, id_controle_cheque_cartao, doc_principal_pessoa, nome, dados_adicionais, valor_total, quantidade_parcelas, especie, valor_parcela, data_vencimento, data_pagamento, data_inclusao, data_modificacao FROM rep_controle_ch_ct $P!{where}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numero_parcela" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_controle_cheque_cartao" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="doc_principal_pessoa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dados_adicionais" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor_total" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantidade_parcelas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="especie" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor_parcela" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_vencimento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_pagamento" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_inclusao" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_modificacao" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="soma_valor_total" class="java.math.BigDecimal" incrementType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$V{soma_valor_total}.add($F{valor_parcela})]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.math.BigDecimal(0.0)]]></initialValueExpression>
+	</variable>
+	<group name="id_controle_cheque_cartao">
+		<groupExpression><![CDATA[$F{id_controle_cheque_cartao}]]></groupExpression>
+		<groupHeader>
+			<band height="152">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="5c8fdaed-5066-4943-93c0-92a6efef6ae1"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Código:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="5a087bba-ff32-458e-9a68-d2aa4d243f0d"/>
+					<textElement>
+						<font fontName="Arial" size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id_controle_cheque_cartao}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="131" width="595" height="1" forecolor="#666666" uuid="8aecd8a6-375a-4659-838f-620c08b0dd22"/>
+				</line>
+				<staticText>
+					<reportElement mode="Opaque" x="202" y="32" width="63" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="40f70ba0-2a69-42ac-85de-f09d305a3315"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nome:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="265" y="32" width="290" height="20" uuid="fde9d0cf-34a2-409f-b353-8fbe426e61cf"/>
+					<textElement>
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="52" width="136" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="86a969a3-869a-4b11-92ef-a9b7fb733130"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Dados adcionais:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="136" y="52" width="419" height="40" uuid="70d843eb-16f2-4c68-b9a5-38266f1afc3b"/>
+					<textElement>
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dados_adicionais}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="92" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="26219ffe-3327-465f-9e88-76e27ece4f41"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Valor total:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+					<reportElement x="92" y="92" width="261" height="20" uuid="37601fbb-b08e-426a-bc4c-299399fe13d5"/>
+					<textElement>
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{valor_total}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="111" width="202" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="26c2bfa3-2382-42c0-9d1b-23c5348f31f6"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Quantidade de parcelas:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="202" y="112" width="353" height="20" uuid="a8b08abd-2f4c-495d-a3d9-055c1a17717a"/>
+					<textElement>
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{quantidade_parcelas}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="32" width="46" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="882697ca-90a0-45e7-ae37-94a4c50b2ca6"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Doc.:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="46" y="32" width="156" height="20" uuid="e34f3f21-bc9c-48df-94f2-7f4baa871058"/>
+					<textElement>
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{doc_principal_pessoa}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="132" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c3b026b2-cd20-4695-9eec-90d171569719"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cod. lanc.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="92" y="132" width="72" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5b2f538e-6cd3-4b4a-9bb0-3b7faf0c48f6"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Parcela]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="164" y="132" width="125" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="dc4c407c-83c6-4683-9c6c-06158784b301"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Valor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="289" y="132" width="99" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3b080583-1482-4286-904d-009c0cd92e84"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Vencimento]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="388" y="132" width="167" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f46bed1d-b238-413a-9b52-c9f6eb444718"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pagamento]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="421" y="91" width="134" height="21" uuid="7e5cc5b9-c3c0-45f1-8804-95045ce39217"/>
+					<textElement>
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{especie}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="353" y="92" width="68" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1fe857d2-ed40-4598-99d7-bef745def4ed"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Espécie:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+			<band height="25">
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="555" height="1" uuid="5c33fd7b-1881-424d-98c4-8abe4ebe5e10"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="b76af4f9-0f9d-4fcd-bbad-91540b712368"/>
+				<staticText>
+					<reportElement x="20" y="20" width="555" height="43" forecolor="#FFFFFF" uuid="52b22e2e-b29b-4fb7-a89a-e2a754a5f385"/>
+					<textElement>
+						<font fontName="Arial" size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de cheque e cartão]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="63" width="100" height="20" forecolor="#FFFFFF" uuid="b26a14e5-0c0d-43dc-a99a-0f7bb85b3002"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Por intervalo]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="120" y="63" width="455" height="20" forecolor="#FEFEFE" backcolor="#FFFFFF" uuid="529de923-0dc6-4987-be28-323e4cb203c8"/>
+					<textElement>
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA["De " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($P{data_inicio}) + " até " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($P{data_fim})]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="4">
+			<line>
+				<reportElement x="-20" y="3" width="595" height="1" forecolor="#666666" uuid="f02ccd62-496d-4faf-935d-4dc76f1dc0c8"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="92" height="20" uuid="77cc5411-7d10-4fc4-8d75-89102cef3b96"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="92" y="0" width="72" height="20" uuid="9e259277-ee69-423f-8c8c-1bf05701b76c"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_parcela}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0.00" isBlankWhenNull="true">
+				<reportElement x="164" y="0" width="125" height="20" uuid="64cde68d-5612-4fc2-acb9-0ba8d5258891"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor_parcela}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="289" y="0" width="99" height="20" uuid="2acd1b5e-a2ac-4b3f-9ca9-7f64aea2ac46"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data_vencimento}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy HH.mm.ss" isBlankWhenNull="true">
+				<reportElement x="388" y="0" width="167" height="20" uuid="7913203a-476e-4da9-b89e-40aef3bc5640"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data_pagamento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="add68f47-df6e-4eed-b083-f7e1d584fc4c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="d91b3dd7-4a91-4124-ac35-5bc2d4667951"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="0" y="4" width="150" height="13" uuid="3c5d6c8a-95d1-48ae-b619-d4c551d6458b"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="40">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="202" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="cef293b0-fb30-4242-ac62-e0bd012cac95"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor total das parcelas:]]></text>
+			</staticText>
+			<textField pattern="###0.00">
+				<reportElement x="202" y="0" width="353" height="20" uuid="0ed4e285-8aeb-45c6-b607-56f6ea555674"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{soma_valor_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="20" width="202" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="dc0a0494-a568-426c-9fc4-6292fa37d4e0"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantidade parcelas:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="202" y="20" width="353" height="20" uuid="d6ce350a-af6e-476f-a82a-76e974338f20"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

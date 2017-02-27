@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="repClienteGeral" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="036d3dbc-5353-4f6b-860e-5c5a38b008f7">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="data_inicio" class="java.lang.String"/>
+	<parameter name="data_fim" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["src/relatorio/"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT doc_principal, doc_secundario, tipo, nome, fantasia, estado_civil, pessoa_autorizada, data_nascimento, limite_credito, cep_cidade_natal, data_inclusao, data_modificacao FROM rel_clientes_geral  WHERE data_inclusao BETWEEN '$P!{data_inicio}' AND '$P!{data_fim}']]>
+	</queryString>
+	<field name="doc_principal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="doc_secundario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fantasia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_civil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pessoa_autorizada" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_nascimento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="limite_credito" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cep_cidade_natal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_inclusao" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_modificacao" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="39" uuid="45e96914-343d-4e52-8427-0e9f9346eba2"/>
+				<textElement textAlignment="Center">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Relatório de clientes com contatos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="106" y="20" width="100" height="20" uuid="b18213b0-c01e-48e9-982b-0194f9b9a5bc"/>
+				<textFieldExpression><![CDATA[$P{data_fim}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="0" width="100" height="20" uuid="b691b5fe-fa87-45f3-88a0-5dcbd17cce42"/>
+				<textFieldExpression><![CDATA[$P{data_inicio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="106" height="20" uuid="cabf8154-fd34-45f8-81bf-726560fe002b"/>
+				<text><![CDATA[Data inicial:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="106" height="20" uuid="6395dc01-4df6-4805-9f17-937f1635138c"/>
+				<text><![CDATA[Data final:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="279" splitType="Stretch">
+			<textField>
+				<reportElement x="145" y="0" width="410" height="20" uuid="23f4aeaa-04df-451e-9ec3-f084e3925820"/>
+				<textFieldExpression><![CDATA[$F{doc_principal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="145" height="20" uuid="bf3b783f-43c3-42c9-ab25-07c50cfbf88f"/>
+				<text><![CDATA[Documento principal:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="20" width="410" height="20" uuid="6dbb8044-f8a8-4ccb-98b4-c28c5288fae2"/>
+				<textFieldExpression><![CDATA[$F{doc_secundario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="40" width="410" height="20" uuid="032e3658-afb4-435c-8e31-5da94110f8b9"/>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="60" width="410" height="20" uuid="6f200358-7405-4b57-aa44-b03dd74fdfef"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="80" width="410" height="20" uuid="82d2b1fa-aa89-48a2-87d0-5049eb040c0a"/>
+				<textFieldExpression><![CDATA[$F{fantasia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="100" width="410" height="20" uuid="2ba30d19-823f-412d-a2a8-dee719b7377f"/>
+				<textFieldExpression><![CDATA[$F{estado_civil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="120" width="410" height="20" uuid="d5a5ff53-942b-46d1-bdda-e80bb5363050"/>
+				<textFieldExpression><![CDATA[$F{pessoa_autorizada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="140" width="410" height="20" uuid="4c56c59b-0fc4-4808-9364-6151be1ac6d5"/>
+				<textFieldExpression><![CDATA[$F{data_nascimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="160" width="410" height="20" uuid="479a3ba4-3713-40de-855e-c2472e44c322"/>
+				<textFieldExpression><![CDATA[$F{limite_credito}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="180" width="410" height="20" uuid="37fb5fa5-8ba5-4212-bb9c-ff76c8aab2d9"/>
+				<textFieldExpression><![CDATA[$F{cep_cidade_natal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="200" width="410" height="20" uuid="1624d573-86ef-4737-8b4b-035a922f8c79"/>
+				<textFieldExpression><![CDATA[$F{data_inclusao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="220" width="410" height="20" uuid="42b8f523-644c-470f-be69-19ae1dde9525"/>
+				<textFieldExpression><![CDATA[$F{data_modificacao}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="240" width="555" height="38" uuid="b5f3ec89-cef0-4c05-8b76-c5902f88a5db"/>
+				<subreportParameter name="doc_contato">
+					<subreportParameterExpression><![CDATA[$F{doc_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "repContatos.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="20" width="145" height="20" uuid="9d95ac04-a1c2-4a22-9450-eeca9c047896"/>
+				<text><![CDATA[Documento secundário:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="145" height="20" uuid="42f65c6d-7418-4d9a-b5eb-a4aa4fd54340"/>
+				<text><![CDATA[Tipo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="145" height="20" uuid="28c7a725-69c2-45bd-b20d-58696db3e98c"/>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="145" height="20" uuid="c5553409-8f36-4d99-97cf-23f6f89a8b58"/>
+				<text><![CDATA[Nome fantasia/apelido:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="100" width="145" height="20" uuid="7201e200-d8da-4fd8-8fad-33dcf68f0296"/>
+				<text><![CDATA[Estado civil:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="120" width="145" height="20" uuid="dc42c700-b07b-47bc-a62a-40063776d5e8"/>
+				<text><![CDATA[Pessoa autorizada:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="140" width="145" height="20" uuid="eb8d5abb-4eac-4c00-8a10-8fd82bb065f1"/>
+				<text><![CDATA[Data nascimento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="145" height="20" uuid="328be5e0-4a28-4f6a-b309-e536b9fa006a"/>
+				<text><![CDATA[Limite de crédito:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="180" width="145" height="20" uuid="41fa86b0-3af0-422c-91e3-b0abe64c37f2"/>
+				<text><![CDATA[Cep da cidade natal:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="200" width="145" height="20" uuid="cfc3290e-1608-433f-8c7c-40518584f92c"/>
+				<text><![CDATA[Data de inclusão:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="220" width="145" height="20" uuid="dc291168-36ee-410e-8ecf-b0032d18f71e"/>
+				<text><![CDATA[Data de modificação:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="88" y="0" width="100" height="20" uuid="26a4f463-6094-4ce9-b734-757da7c04918"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="241" y="0" width="100" height="20" uuid="0e9cc8e1-be2b-4caf-83d0-a6a5bde02f43"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="88" height="20" uuid="dd49c807-8c41-4c9a-85b1-cd3b1e2132d9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Página ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="0" width="53" height="20" uuid="650f9259-62ad-48fd-b618-6cfef0fb8d3c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[de]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="11" splitType="Stretch"/>
+	</summary>
+</jasperReport>

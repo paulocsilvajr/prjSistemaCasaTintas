@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rep_cliente_geral" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="59c72145-7517-4dd6-aa86-dd65ac4c4722">
+	<property name="ireport.zoom" value="0.9090909090909125"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="44"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["src/relatorio/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="data_inicio" class="java.sql.Date"/>
+	<parameter name="data_fim" class="java.sql.Date"/>
+	<queryString>
+		<![CDATA[SELECT doc_principal, doc_secundario, tipo, nome, fantasia, estado_civil, pessoa_autorizada, data_nascimento, limite_credito, cep_cidade_natal, localidade, estado, data_inclusao, data_modificacao FROM rep_clientes_geral WHERE data_inclusao BETWEEN '$P!{data_inicio}' AND '$P!{data_fim}']]>
+	</queryString>
+	<field name="doc_principal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="doc_secundario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fantasia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado_civil" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pessoa_autorizada" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_nascimento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="limite_credito" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cep_cidade_natal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="localidade" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_inclusao" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_modificacao" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="74">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="642e8f31-123e-4c7c-b153-28a4782b462c"/>
+				<staticText>
+					<reportElement x="20" y="20" width="515" height="43" forecolor="#FFFFFF" uuid="a4a5a9d8-4534-440c-8b5b-c241364e246b"/>
+					<textElement>
+						<font fontName="Arial" size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de clientes]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="63" width="195" height="20" forecolor="#FFFFFF" uuid="4e620820-5363-4496-80db-69b9d727f4e4"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Por intervalo, com contatos]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="219" y="63" width="316" height="20" forecolor="#FFFFFF" uuid="47b0c2f5-1f67-45a2-b793-38ef45fd96ec"/>
+					<textElement>
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA["De " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($P{data_inicio}) + " até " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($P{data_fim})]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="289">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="21" width="360" height="20" uuid="91e8ce13-7209-403e-aef4-d57eaef5cea0"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{doc_secundario}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="41" width="360" height="20" uuid="2bfa439f-3072-4155-8d83-bdb39967aa25"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="61" width="360" height="20" uuid="103771e8-40db-4554-b8f8-ff1543d1d071"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="81" width="360" height="20" uuid="ca39d859-07c2-4943-a7ff-7e04378ce746"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fantasia}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="101" width="360" height="20" uuid="eee46b02-7aa1-46de-b54c-fb78fbdf56c5"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado_civil}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="121" width="360" height="20" uuid="1a6b4a2d-b99d-441e-a0f9-4f9efe04c080"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_autorizada}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="141" width="360" height="20" uuid="5668cf85-ad1d-4284-b1c3-ba5eb2446f2d"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{data_nascimento}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="161" width="360" height="20" uuid="38621248-5e27-4559-b8c1-569e45cbcd64"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{limite_credito}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="141" y="181" width="93" height="20" uuid="13ed0a28-9808-46ce-b234-c11351d67951"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cep_cidade_natal}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="331" y="181" width="224" height="20" uuid="3b6eee17-4950-498d-87c1-b2590ce80bc4"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{localidade}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="331" y="201" width="224" height="20" uuid="04e975d4-db4a-4e44-81e6-550ef4993c6a"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="221" width="360" height="20" uuid="e5bedbc5-9652-4000-990f-0b135207d8ef"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy").format($F{data_inclusao})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="241" width="360" height="20" uuid="9a498ffd-8456-4be8-b782-5f22ca6e2fb8"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy").format($F{data_modificacao})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="21" width="195" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b69b1cd2-9635-4858-9a78-cde22cafdd61"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Documento secundário:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="41" width="195" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6790e368-f0e5-4548-a8cb-ffe742c9258f"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="3" width="195" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="07387f93-824c-4b6a-8431-caf61550208a"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Documento Principal:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="61" width="195" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="20343208-b957-4b60-a153-a902f757d19c"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="81" width="195" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f9d8ecf7-e410-4fdb-a9f7-66865435458e"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fantasia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="101" width="195" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="fb648798-7b6d-4f88-bcd9-a781caac1662"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado civil:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="121" width="195" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="8025fb16-13c9-4bff-a34f-c351df7ff69c"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pessoa autorizada:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="141" width="195" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ead68658-9ad8-493e-bbb3-c1dec7f79089"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data nascimento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="161" width="195" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a4d0ccd5-2607-4296-bcfb-55fbca4e178a"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Limite de crédito:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="181" width="141" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="4417d2a2-3765-4454-b4a6-9c9b85a57467"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEP cidade natal:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="234" y="181" width="97" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="26068dab-682e-4717-b008-dcf9fbaa36ad"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Localidade:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="234" y="201" width="97" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5bfe6e26-2eb1-4288-8a2d-7c434fba38f9"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="221" width="195" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9e050c02-73c1-413a-803a-0ff7e5a8a094"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data inclusão:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="241" width="195" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a79e6201-cc9a-44ed-8ba4-614a899363f3"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data modificação:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="262" width="555" height="24" uuid="2732e81e-92a1-40e7-a4bf-d57a75dfce7d"/>
+				<subreportParameter name="doc_contato">
+					<subreportParameterExpression><![CDATA[$F{doc_principal}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "rep_contatos.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="1" width="360" height="20" uuid="47ca8eb1-6f23-482e-8357-964a87e3f7f5"/>
+				<textElement>
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{doc_principal}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="b1be5c9f-e5d4-41e3-a203-a6beb0e64a87"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="45a38f1b-14c8-4d6e-8315-4eb762d29d92"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="6265307e-c472-4c64-a07e-047472737419"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="0" y="4" width="195" height="13" uuid="fad19c2a-abdc-4df5-b3b4-1f7902d1a614"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

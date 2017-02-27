@@ -1,0 +1,18 @@
+﻿criar banco:
+	
+
+nome: casa_tintas
+	
+collation: utf8_general_ci
+
+ criar 
+
+usuario no mysql:
+	
+
+nome: orions
+	
+senha: OS@4862953
+	
+
+todos os provilégios/adminstrador
