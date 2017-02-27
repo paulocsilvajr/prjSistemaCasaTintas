@@ -62,7 +62,9 @@ Backup e configurações gerais do sistema.
 [Licença GPL](https://github.com/paulocsilvajr/prjSistemaCasaTintas/blob/master/license_gpl.txt), arquivo em anexo no repositório.
 
 ###Contato
+```
 Ewerton Macedo Silva - ewertonmacedo.info@gmail.com
 Jonas Almeida Raymundo - jonasaraymundo@gmail.com
 Patric Pauluk - patric.pauluk@outlook.com 
 Paulo Carvalho da Silva Junior - pauluscave@gmail.com
+```
