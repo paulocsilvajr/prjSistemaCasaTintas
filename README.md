@@ -3,7 +3,7 @@
 
 Este repositório contém um projeto desenvolvido para fins acadêmicos com o propósito de aplicar o conhecimento obtido em programação em Java e banco de dados. O sistema desenvolvido tem o objetivo de criar um ambiente propício para a gestão de vendas de uma loja, pensando na sua especialidade em produção de tintas. Os recursos contidos serão detalhados em um tópico específico. 
 
-###Pré-requisitos
+### Pré-requisitos
 Instalar os seguintes programas e pacotes:
 ```
 Java 1.8
@@ -37,7 +37,7 @@ No arquivo src/sistema/Conexao.java estão contidas os dados de conexão com o b
 
 O usuário padrão do sistema é "admin" e tem por senha "123456". Este usuário é do tipo administrador. Para modificar esta senha, deve-se logar o sistema, acessar Usuários->Cadastro de Usuários, e criar um novo usuário administrador. Após esse processo, deve-se logar com o novo administrador e modificar a senha do usuário padrão.
 
-###Arquivos
+### Arquivos
 
 ```
 backup: Pasta de backup do sistema.
@@ -46,7 +46,7 @@ iReport-5.6.0: Pasta contendo os plugins e bibliotecas do IReport.
 JDB-2016.02.21.jar: Biblioteca do JDB Framework.
 ```
 
-###Recursos
+### Recursos
 
 ```
 Entrada e saída de produtos(venda e compra).
@@ -57,11 +57,11 @@ Relatórios administrativos.
 Backup e configurações gerais do sistema.
 ```
 
-###Licença
+### Licença
 
 [Licença GPL](https://github.com/paulocsilvajr/prjSistemaCasaTintas/blob/master/license_gpl.txt), arquivo em anexo no repositório.
 
-###Contato
+### Contato
 ```
 Ewerton Macedo Silva - ewertonmacedo.info@gmail.com
 Jonas Almeida Raymundo - jonasaraymundo@gmail.com
