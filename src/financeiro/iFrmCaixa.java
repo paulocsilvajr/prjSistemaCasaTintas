@@ -599,7 +599,7 @@ public class iFrmCaixa extends javax.swing.JInternalFrame {
         
         cbxEspecie.setSelectedIndex(0);
         
-        if(qryCaixaTransf.getRow() != -1){
+        if(qryCaixaTransf.getRow() > 0){
             cbxCaixaTransf.setSelectedIndex(0);
         }
     }
