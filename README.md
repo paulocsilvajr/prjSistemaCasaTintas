@@ -52,6 +52,7 @@ backup: Pasta de backup do sistema.
 src: Pasta contendo todos os pacotes do sistema.
 iReport-5.6.0: Pasta contendo os plugins e bibliotecas do IReport.
 JDB-2016.02.21.jar: Biblioteca do JDB Framework.
+telas: Pasta contendo as telas/prints do sistema
 ```
 
 ### Recursos
